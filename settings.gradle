@@ -1,0 +1,3 @@
+rootProject.name = 'BooleanGroup'
+
+include('BooleanGroupWebService', 'BooleanGroupCounter')
