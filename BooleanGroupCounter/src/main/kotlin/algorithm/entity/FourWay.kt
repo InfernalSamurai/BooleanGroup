@@ -1,9 +1,12 @@
 package algorithm.entity
 
-class FourWay {
+import algorithm.interfaces.WayInterface
 
-    internal fun getRowShiftIndexes() = intArrayOf(-1, 0, 0, 1)
+class FourWay : WayInterface {
+    override fun getWays() = 4
 
-    internal fun getColumnShiftIndexes() = intArrayOf(0, -1, 1, 0)
+    override fun getRowShiftIndexes(): MutableList<Int> = arrayListOf(-1, 0, 0, 1)
+
+    override fun getColumnShiftIndexes(): MutableList<Int> = arrayListOf(0, -1, 1, 0)
 
 }

@@ -1,4 +1,6 @@
+
 import algorithm.GroupCounterAlgorithm
+import algorithm.entity.FourWay
 import kotlin.random.Random
 
 class BooleanGroupCounter
@@ -22,5 +24,5 @@ fun main(args: Array<String>) {
 }
 
 private fun count(booleanGroupMatrix: Array<Array<Int>>): Int {
-    return GroupCounterAlgorithm(booleanGroupMatrix).countAndGet()
+    return GroupCounterAlgorithm(booleanGroupMatrix, FourWay()).countAndGet()
 }

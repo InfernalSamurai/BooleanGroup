@@ -1,8 +1,8 @@
 package algorithm
 
-import algorithm.entity.FourWay
+import algorithm.interfaces.WayInterface
 
-class GroupCounterAlgorithm(var matrix: Array<Array<Int>>) {
+class GroupCounterAlgorithm(var matrix: Array<Array<Int>>, private val ways: WayInterface) {
     var visited: MutableList<BooleanArray> = MutableList(matrix.size) { BooleanArray(matrix[0].size) }
 
     fun countAndGet(): Int {
@@ -29,9 +29,9 @@ class GroupCounterAlgorithm(var matrix: Array<Array<Int>>) {
     private fun checkAndMark(rowIndex: Int, columnIndex: Int, booleanGroupTable: Array<Array<Int>>) {
         visited[rowIndex][columnIndex] = true
 
-        FourWay().getRowShiftIndexes().forEachIndexed { i, _ ->
-            val checkingRowIndex = rowIndex + FourWay().getRowShiftIndexes()[i]
-            val checkingColumnIndex = columnIndex + FourWay().getColumnShiftIndexes()[i]
+        for (i: Int in 0 until ways.getWays()) {
+            val checkingRowIndex = rowIndex + ways.getRowShiftIndexes()[i]
+            val checkingColumnIndex = columnIndex + ways.getColumnShiftIndexes()[i]
 
             if (isNeedCount(checkingRowIndex, checkingColumnIndex)) {
                 checkAndMark(checkingRowIndex, checkingColumnIndex, booleanGroupTable)
