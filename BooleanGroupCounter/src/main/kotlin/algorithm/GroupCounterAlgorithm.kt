@@ -42,8 +42,15 @@ class GroupCounterAlgorithm(var matrix: Array<Array<Int>>) {
 
     private fun isNeedCount(checkingRowIndex: Int, checkingColumnIndex: Int): Boolean {
         return isSafe(checkingRowIndex, checkingColumnIndex)
-                && matrix[checkingRowIndex][checkingColumnIndex] == 1 && !visited[checkingRowIndex][checkingColumnIndex]
+                && isCountingValue(checkingRowIndex, checkingColumnIndex)
+                && isNotVisited(checkingRowIndex, checkingColumnIndex)
     }
+
+    private fun isNotVisited(checkingRowIndex: Int, checkingColumnIndex: Int) =
+            !visited[checkingRowIndex][checkingColumnIndex]
+
+    private fun isCountingValue(checkingRowIndex: Int, checkingColumnIndex: Int) =
+            matrix[checkingRowIndex][checkingColumnIndex] == 1
 
     private fun isSafe(checkingRowIndex: Int, checkingColumnIndex: Int): Boolean {
         return isIndexSafe(checkingRowIndex, matrix.size)
