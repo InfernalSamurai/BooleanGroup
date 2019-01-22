@@ -1,6 +1,6 @@
-package algorithm.entity
+package ru.hei.counter.entity
 
-import algorithm.interfaces.WayInterface
+import ru.hei.counter.interfaces.WayInterface
 
 class FourWay : WayInterface {
     override fun getWays() = 4

@@ -1,6 +1,7 @@
+package ru.hei.counter
 
-import algorithm.GroupCounterAlgorithm
-import algorithm.entity.FourWay
+import ru.hei.counter.algorithm.GroupCounterAlgorithm
+import ru.hei.counter.entity.FourWay
 import kotlin.random.Random
 
 class BooleanGroupCounter
