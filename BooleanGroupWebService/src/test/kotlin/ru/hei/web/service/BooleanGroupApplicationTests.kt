@@ -1,4 +1,4 @@
-package BooleanGroup
+package ru.hei.web.service
 
 import org.junit.Test
 import org.junit.runner.RunWith

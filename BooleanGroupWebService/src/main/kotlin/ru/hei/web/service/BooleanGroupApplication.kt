@@ -1,4 +1,4 @@
-package BooleanGroup
+package ru.hei.web.service
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
