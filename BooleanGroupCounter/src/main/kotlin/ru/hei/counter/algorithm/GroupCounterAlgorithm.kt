@@ -2,7 +2,7 @@ package ru.hei.counter.algorithm
 
 import ru.hei.counter.interfaces.WayInterface
 
-class GroupCounterAlgorithm(var matrix: Array<Array<Int>>, private val ways: WayInterface) {
+class GroupCounterAlgorithm(var matrix: List<List<Int>>, private val ways: WayInterface) {
     var visited: MutableList<BooleanArray> = MutableList(matrix.size) { BooleanArray(matrix[0].size) }
 
     fun countAndGet(): Int {
@@ -26,7 +26,7 @@ class GroupCounterAlgorithm(var matrix: Array<Array<Int>>, private val ways: Way
         return count
     }
 
-    private fun checkAndMark(rowIndex: Int, columnIndex: Int, booleanGroupTable: Array<Array<Int>>) {
+    private fun checkAndMark(rowIndex: Int, columnIndex: Int, booleanGroupTable: List<List<Int>>) {
         visited[rowIndex][columnIndex] = true
 
         for (i: Int in 0 until ways.getWays()) {
@@ -38,7 +38,6 @@ class GroupCounterAlgorithm(var matrix: Array<Array<Int>>, private val ways: Way
             }
         }
     }
-
 
     private fun isNeedCount(checkingRowIndex: Int, checkingColumnIndex: Int): Boolean {
         return isSafe(checkingRowIndex, checkingColumnIndex)
