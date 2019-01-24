@@ -20,7 +20,9 @@ class BooleanGroupKafkaMessage {
     @Autowired
     lateinit var kafkaTemplate: KafkaTemplate<String, String>
 
-    fun send(data: BooleanGroupData) = kafkaTemplate.send(topicName, mapper.writeValueAsString(data))
+    fun send(data: BooleanGroupData) = kafkaTemplate.send(topicName,
+            data.id.toString(),
+            mapper.writeValueAsString(data))
 
     @KafkaListener(topics = ["\${matrix.group.consumer.topic}"])
     @Throws(Exception::class)
