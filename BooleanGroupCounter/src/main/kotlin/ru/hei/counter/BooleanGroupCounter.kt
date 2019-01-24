@@ -1,7 +1,8 @@
 package ru.hei.counter
 
 import ru.hei.counter.algorithm.GroupCounterAlgorithm
-import ru.hei.counter.entity.FourWay
+import ru.hei.counter.algorithm.entity.FourWay
+import ru.hei.counter.entity.BooleanGroupData
 
 class BooleanGroupCounter(private val booleanGroupData: BooleanGroupData) {
     fun countGroupsAndGetData() = BooleanGroupData(

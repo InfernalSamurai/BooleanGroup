@@ -1,5 +1,6 @@
 package ru.hei.counter
 
+import ru.hei.counter.entity.BooleanGroupData
 import java.io.File
 
 class BooleanGroupFile(private val data: BooleanGroupData) {

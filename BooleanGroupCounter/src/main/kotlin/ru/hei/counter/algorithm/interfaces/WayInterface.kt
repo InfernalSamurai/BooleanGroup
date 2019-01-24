@@ -1,4 +1,4 @@
-package ru.hei.counter.interfaces
+package ru.hei.counter.algorithm.interfaces
 
 interface WayInterface {
     fun getWays(): Int

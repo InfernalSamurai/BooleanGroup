@@ -9,6 +9,7 @@ import org.springframework.messaging.MessageHeaders
 import org.springframework.messaging.handler.annotation.Headers
 import org.springframework.messaging.handler.annotation.Payload
 import org.springframework.stereotype.Service
+import ru.hei.counter.entity.BooleanGroupData
 
 @Service
 class BooleanGroupKafkaMessage {

@@ -1,6 +1,6 @@
 package ru.hei.counter.algorithm
 
-import ru.hei.counter.interfaces.WayInterface
+import ru.hei.counter.algorithm.interfaces.WayInterface
 
 class GroupCounterAlgorithm(var matrix: List<List<Int>>, private val ways: WayInterface) {
     var visited: MutableList<BooleanArray> = MutableList(matrix.size) { BooleanArray(matrix[0].size) }

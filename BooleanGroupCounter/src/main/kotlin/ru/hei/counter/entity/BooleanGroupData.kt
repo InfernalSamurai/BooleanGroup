@@ -1,4 +1,4 @@
-package ru.hei.counter
+package ru.hei.counter.entity
 
 data class BooleanGroupData(
         val id: Long,
