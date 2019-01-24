@@ -28,8 +28,8 @@ class BooleanGroupKafkaMessage {
     @Throws(Exception::class)
     fun receive(@Payload message: String, @Headers messageHeaders: MessageHeaders) {
         mapper.readValue(message, BooleanGroupData::class.java)?.let {
-            val data = BooleanGroupCounter(it).countGroupsAndGetData()
-            BooleanGroupFile(data).writeToDirectory(directory)
+            val dataWithCountedGroups = BooleanGroupCounter(it).countGroupsAndGetData()
+            BooleanGroupFile(dataWithCountedGroups).writeToDirectory(directory)
         }
     }
 
