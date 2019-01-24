@@ -9,4 +9,3 @@ class BooleanGroupApplication
 fun main(args: Array<String>) {
     runApplication<BooleanGroupApplication>(*args)
 }
-
