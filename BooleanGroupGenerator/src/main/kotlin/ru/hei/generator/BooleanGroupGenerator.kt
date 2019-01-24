@@ -1,5 +1,6 @@
 package ru.hei.generator
 
+import ru.hei.generator.entity.BooleanGroupData
 import kotlin.random.Random
 
 class BooleanGroupGenerator(private val booleanGroupData: BooleanGroupData) {

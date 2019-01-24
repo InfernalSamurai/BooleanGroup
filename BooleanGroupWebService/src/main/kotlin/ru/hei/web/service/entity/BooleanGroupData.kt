@@ -1,4 +1,4 @@
-package ru.hei.generator
+package ru.hei.web.service.entity
 
 data class BooleanGroupData(
         val id: Long,
