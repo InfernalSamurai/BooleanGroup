@@ -13,26 +13,19 @@ import org.springframework.stereotype.Service
 @Service
 class BooleanGroupKafkaMessage {
     @Value("\${matrix.group.producer.topic}")
-    var topicName: String = ""
+    private lateinit var topicName: String
     private val mapper = jacksonObjectMapper()
 
     @Autowired
     lateinit var kafkaTemplate: KafkaTemplate<String, String>
 
-    fun withTopic(topicName: String): BooleanGroupKafkaMessage {
-        this.topicName = topicName
-        return this
-    }
+    fun send(data: BooleanGroupData) = kafkaTemplate.send(topicName, mapper.writeValueAsString(data))
 
-    fun send(data: String) {
-        kafkaTemplate.send(topicName, data)
-    }
-
-    @KafkaListener(topics = ["\${matrix.consumer.topic}"])
+    @KafkaListener(topics = ["\${matrix.group.consumer.topic}"])
+    @Throws(Exception::class)
     fun receive(@Payload message: String, @Headers messageHeaders: MessageHeaders) {
-        val (weight, height) = mapper.readValue(message, BooleanGroupData::class.java)
-        val matrix = BooleanGroupGenerator().generate(height, weight)
-        val serialisedMatrix = mapper.writeValueAsString(matrix)
-        send(serialisedMatrix)
+        mapper.readValue(message, BooleanGroupData::class.java)?.let {
+            send(BooleanGroupGenerator(it).generateMatrixAndGetData())
+        }
     }
 }
